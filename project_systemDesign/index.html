@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="MentorHub connects students with the right mentors through AI matching, structured sessions, and measurable progress." />
+    <title>MentorHub - Agency Bootstrap Landing Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        :root {
+            --lime: #a7ed27;
+            --lime-dark: #78b91e;
+            --cyan: #62c9ec;
+            --cyan-dark: #1d96c2;
+            --ink: #151617;
+            --soft: #f4fbe8;
+            --muted: #68706c;
+            --line: #dfead7;
+        }
+
+        body {
+            overflow-x: hidden;
+            color: #1b1d1b;
+            font-family: "Roboto Slab",serif;
+            line-height: 1.75;
+            background: var(--soft);
+        }
+
+        p {
+            color: var(--muted);
+        }
+
+        h1, h2, h3, h4, h5, h6, .navbar-brand, .btn, .section-heading, .section-subheading {
+            font-family: "Montserrat",sans-serif;
+        }
+
+        .btn-xl {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 6px;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            --bs-btn-color: var(--ink);
+            --bs-btn-bg: var(--lime);
+            --bs-btn-border-color: var(--lime);
+            --bs-btn-hover-color: var(--ink);
+            --bs-btn-hover-bg: #b9f44d;
+            --bs-btn-hover-border-color: #b9f44d;
+            --bs-btn-active-color: var(--ink);
+            --bs-btn-active-bg: var(--lime-dark);
+            --bs-btn-active-border-color: var(--lime-dark);
+        }
+
+        #mainNav {
+            padding: 1rem 0;
+            background: var(--ink);
+            transition: padding .2s ease;
+        }
+
+            #mainNav .navbar-brand {
+                color: var(--lime);
+                font-weight: 700;
+            }
+
+            #mainNav .brand-mark {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 34px;
+                height: 34px;
+                margin-right: .45rem;
+                border-radius: 8px;
+                color: var(--ink);
+                background: linear-gradient(135deg,var(--lime),var(--cyan));
+            }
+
+            #mainNav .nav-link {
+                color: #fff;
+                font-family: "Montserrat",sans-serif;
+                font-size: .92rem;
+                letter-spacing: .06em;
+                text-transform: uppercase;
+            }
+
+                #mainNav .nav-link:hover, #mainNav .nav-link.active {
+                    color: var(--lime);
+                }
+
+            #mainNav .auth-link {
+                margin-left: .4rem;
+                padding-right: 1rem;
+                padding-left: 1rem;
+                border: 1px solid rgba(255,255,255,.45);
+                border-radius: 6px;
+            }
+
+            #mainNav .user-link {
+                display: none;
+                align-items: center;
+                gap: .45rem;
+                margin-left: .4rem;
+                padding-right: 1rem;
+                padding-left: 1rem;
+                border: 1px solid rgba(255,255,255,.45);
+                border-radius: 6px;
+            }
+
+                #mainNav .user-link i {
+                    color: var(--lime);
+                    font-size: 1.15rem;
+                }
+
+            #mainNav .user-item {
+                display: none;
+            }
+
+                #mainNav .auth-link.register {
+                    color: var(--ink);
+                    border-color: var(--lime);
+                    background: var(--lime);
+                }
+
+                    #mainNav .auth-link.register:hover {
+                        color: var(--ink);
+                        background: #b9f44d;
+                    }
+
+        header.masthead {
+            min-height: 92vh;
+            padding: 10.5rem 0 6rem;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(115deg,rgba(98,201,236,.22) 0%,rgba(167,237,39,.24) 52%,rgba(21,22,23,.78) 100%),linear-gradient(180deg,rgba(21,22,23,.48),rgba(21,22,23,.76)),url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+        }
+
+        .masthead-subheading {
+            max-width: 860px;
+            margin: 0 auto 1.25rem;
+            font-size: 1.4rem;
+            font-style: italic;
+            line-height: 1.45;
+        }
+
+        .masthead-heading {
+            max-width: 980px;
+            margin: 0 auto 1.6rem;
+            font-size: clamp(2.7rem,7vw,5rem);
+            font-weight: 700;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .masthead .lead {
+            max-width: 740px;
+            margin: 0 auto 2rem;
+            color: rgba(255,255,255,.84);
+            font-size: 1.08rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: .85rem;
+        }
+
+        .page-section {
+            padding: 6rem 0;
+        }
+
+        .bg-light {
+            background-color: var(--soft) !important;
+        }
+
+        .section-heading {
+            margin: 0 0 1rem;
+            font-size: 2.35rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .section-subheading {
+            margin-bottom: 4rem;
+            color: var(--muted);
+            font-size: 1rem;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .section-kicker {
+            display: inline-block;
+            margin-bottom: .65rem;
+            color: var(--lime-dark);
+            font-family: "Montserrat",sans-serif;
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .stat-strip {
+            margin-top: -3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-panel {
+            border-radius: 8px;
+            background: #fbfff2;
+            box-shadow: 0 16px 40px rgba(0,0,0,.14);
+        }
+
+        .stat-number {
+            margin-bottom: .15rem;
+            color: var(--ink);
+            font-family: "Montserrat",sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            color: var(--muted);
+            font-family: "Montserrat",sans-serif;
+            font-size: .82rem;
+            font-weight: 600;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+        }
+
+        .feature-icon {
+            display: inline-flex;
+            width: 7rem;
+            height: 7rem;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: var(--ink);
+            background: var(--lime);
+            box-shadow: 0 16px 36px rgba(32,75,34,.16);
+        }
+
+            .feature-icon.green {
+                background: var(--lime);
+            }
+
+            .feature-icon.blue {
+                background: var(--cyan);
+            }
+
+            .feature-icon i {
+                font-size: 3.15rem;
+            }
+
+        .service-heading {
+            margin: 1rem 0 .75rem;
+            font-weight: 700;
+        }
+
+        .problem-card {
+            height: 100%;
+            padding: 2rem;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #fbfff2;
+        }
+
+        .role {
+            color: var(--cyan-dark);
+            font-family: "Montserrat",sans-serif;
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .module-item {
+            height: 100%;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #fbfff2;
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.08);
+        }
+
+            .module-item img {
+                width: 100%;
+                height: 235px;
+                object-fit: cover;
+            }
+
+        .module-caption {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .module-caption-heading {
+            margin-bottom: .35rem;
+            font-family: "Montserrat",sans-serif;
+            font-size: 1.32rem;
+            font-weight: 700;
+        }
+
+        .module-caption-subheading {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 0;
+            list-style: none;
+        }
+
+            .timeline:before {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 40px;
+                width: 2px;
+                margin-left: -1.5px;
+                content: "";
+                background: var(--line);
+            }
+
+            .timeline > li {
+                position: relative;
+                min-height: 110px;
+                margin-bottom: 3rem;
+            }
+
+                .timeline > li:after, .timeline > li:before {
+                    display: table;
+                    content: " ";
+                }
+
+                .timeline > li:after {
+                    clear: both;
+                }
+
+                .timeline > li .timeline-panel {
+                    float: right;
+                    width: calc(100% - 95px);
+                    padding: 0 0 0 1.25rem;
+                    text-align: left;
+                }
+
+                .timeline > li .timeline-image {
+                    position: absolute;
+                    z-index: 100;
+                    left: 0;
+                    width: 80px;
+                    height: 80px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: var(--ink);
+                    border: 6px solid var(--line);
+                    border-radius: 50%;
+                    background: linear-gradient(135deg,var(--lime),var(--cyan));
+                }
+
+        .timeline-image span {
+            font-family: "Montserrat",sans-serif;
+            font-size: 1.65rem;
+            font-weight: 700;
+        }
+
+        .timeline-heading h4 {
+            margin-top: 0;
+            font-weight: 700;
+        }
+
+        .timeline-heading .subheading {
+            text-transform: none;
+        }
+
+        .stack-band {
+            color: #fff;
+            background: linear-gradient(110deg,rgba(21,22,23,.94),rgba(98,201,236,.46),rgba(167,237,39,.58)),linear-gradient(90deg,rgba(21,22,23,.90),rgba(21,22,23,.70)),url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+        }
+
+            .stack-band p, .stack-band .section-subheading {
+                color: rgba(255,255,255,.76) !important;
+            }
+
+        .stack-list {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(2,minmax(0,1fr));
+        }
+
+        .stack-pill {
+            padding: 1rem;
+            border: 1px solid rgba(167,237,39,.30);
+            border-radius: 8px;
+            background: rgba(21,22,23,.44);
+            backdrop-filter: blur(8px);
+        }
+
+            .stack-pill strong {
+                display: block;
+                color: #fff;
+                font-family: "Montserrat",sans-serif;
+                margin-bottom: .25rem;
+            }
+
+        .cta-band {
+            color: #fff;
+            background: linear-gradient(120deg,var(--ink),#24331f 52%,#173444);
+        }
+
+            .cta-band p {
+                color: rgba(255,255,255,.78);
+            }
+
+        #contact {
+            color: #fff;
+            background: linear-gradient(105deg,rgba(21,22,23,.95),rgba(23,52,68,.88),rgba(71,98,31,.76)),url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+        }
+
+            #contact .section-heading {
+                color: #fff;
+            }
+
+            #contact .section-subheading {
+                color: rgba(255,255,255,.7);
+            }
+
+        .contact-info {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            margin-bottom: 1.4rem;
+        }
+
+            .contact-info i {
+                display: inline-flex;
+                flex: 0 0 auto;
+                width: 44px;
+                height: 44px;
+                align-items: center;
+                justify-content: center;
+                border-radius: 8px;
+                color: var(--ink);
+                background: linear-gradient(135deg,var(--lime),var(--cyan));
+                font-size: 1.25rem;
+            }
+
+            .contact-info strong {
+                display: block;
+                color: #fff;
+                font-family: "Montserrat",sans-serif;
+            }
+
+            .contact-info span {
+                color: rgba(255,255,255,.72);
+            }
+
+        #contact .form-control, #contact .form-select {
+            padding: 1.1rem;
+            border: 0;
+            border-radius: 6px;
+            font-family: "Montserrat",sans-serif;
+        }
+
+        #contact textarea.form-control {
+            min-height: 13rem;
+        }
+
+        .footer {
+            padding: 1.5rem 0;
+            text-align: center;
+            font-family: "Montserrat",sans-serif;
+            font-size: .9rem;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .7s ease, transform .7s ease;
+            transition-delay: var(--reveal-delay,0ms);
+        }
+
+            .reveal.is-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        .reveal-left {
+            transform: translateX(-28px);
+        }
+
+        .reveal-right {
+            transform: translateX(28px);
+        }
+
+            .reveal-left.is-visible, .reveal-right.is-visible {
+                transform: translateX(0);
+            }
+
+        .reveal-scale {
+            transform: translateY(18px) scale(.97);
+        }
+
+            .reveal-scale.is-visible {
+                transform: translateY(0) scale(1);
+            }
+
+        @media (prefers-reduced-motion:reduce) {
+            .reveal, .reveal-left, .reveal-right, .reveal-scale {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+
+        @media (min-width:768px) {
+            .timeline:before {
+                left: 50%;
+            }
+
+            .timeline > li {
+                min-height: 170px;
+                margin-bottom: 4rem;
+            }
+
+                .timeline > li .timeline-panel {
+                    float: left;
+                    width: 41%;
+                    padding: 0 20px 20px 30px;
+                    text-align: right;
+                }
+
+                .timeline > li .timeline-image {
+                    left: 50%;
+                    width: 120px;
+                    height: 120px;
+                    margin-left: -60px;
+                }
+
+                .timeline > li.timeline-inverted > .timeline-panel {
+                    float: right;
+                    padding: 0 30px 20px 20px;
+                    text-align: left;
+                }
+        }
+
+        @media (min-width:992px) {
+            #mainNav {
+                padding: 1.5rem 0;
+                background: transparent;
+            }
+
+                #mainNav.navbar-shrink {
+                    padding: 1rem 0;
+                    background: var(--ink);
+                }
+        }
+
+        @media (max-width:767.98px) {
+            .page-section {
+                padding: 4rem 0;
+            }
+
+            .stack-list {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-strip {
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+<body id="page-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top"><span class="brand-mark"><i class="bi bi-link-45deg"></i></span>MentorHub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="bi bi-list"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#roles">Use cases</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#how">How it works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#platform">Platform</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item auth-item"><a class="nav-link auth-link" href="login.html">Log in</a></li>
+                    <li class="nav-item auth-item"><a class="nav-link auth-link register" href="register.html">Register</a></li>
+                    <li class="nav-item user-item"><a class="nav-link user-link" href="#" aria-label="Signed in user"><i class="bi bi-person-circle"></i><span id="navUserName"></span></a></li>
+                    <li class="nav-item user-item"><a class="nav-link" href="#" id="logoutLink">Log out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="masthead">
+        <div class="container">
+            <div class="masthead-subheading">AI-powered mentorship for students and professionals</div>
+            <div class="masthead-heading">Find the mentor who fits your next move</div>
+            <p class="lead">MentorHub matches students with relevant experts, turns goals into structured sessions, and keeps both sides accountable from the first request to measurable progress.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary btn-xl" href="register.html">Find a Mentor</a>
+                <a class="btn btn-outline-light btn-xl" href="register.html">Become a Mentor</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="stat-strip">
+        <div class="container">
+            <div class="stat-panel">
+                <div class="row g-0 text-center">
+                    <div class="col-6 col-lg-3 p-4"><div class="stat-number">500+</div><div class="stat-label">Students matched</div></div>
+                    <div class="col-6 col-lg-3 p-4"><div class="stat-number">120+</div><div class="stat-label">Expert mentors</div></div>
+                    <div class="col-6 col-lg-3 p-4"><div class="stat-number">94%</div><div class="stat-label">Session completion</div></div>
+                    <div class="col-6 col-lg-3 p-4"><div class="stat-number">4.9</div><div class="stat-label">Average rating</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section" id="features">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-kicker">Key features</span>
+                <h2 class="section-heading">Everything mentorship needs to work</h2>
+                <h3 class="section-subheading">Discovery, booking, communication, and progress tracking in one structured flow.</h3>
+            </div>
+            <div class="row text-center g-4">
+                <div class="col-md-4"><span class="feature-icon"><i class="bi bi-cpu"></i></span><h4 class="service-heading">AI matchmaking</h4><p>Students are matched by goals, skills, learning style, mentor expertise, price range, and availability instead of shallow keyword filters.</p></div>
+                <div class="col-md-4"><span class="feature-icon blue"><i class="bi bi-calendar-check"></i></span><h4 class="service-heading">Smart scheduling</h4><p>Mentors publish available slots, students book sessions quickly, and reminders reduce missed meetings.</p></div>
+                <div class="col-md-4"><span class="feature-icon green"><i class="bi bi-graph-up-arrow"></i></span><h4 class="service-heading">Progress tracking</h4><p>Milestones, notes, and feedback show what changed after each session so mentorship becomes measurable.</p></div>
+                <div class="col-md-4"><span class="feature-icon green"><i class="bi bi-map"></i></span><h4 class="service-heading">Roadmap builder</h4><p>Big career goals become practical weekly steps, with every session connected to the next action.</p></div>
+                <div class="col-md-4"><span class="feature-icon"><i class="bi bi-chat-dots"></i></span><h4 class="service-heading">In-app messaging</h4><p>Students and mentors keep professional communication, files, and preparation notes in one place.</p></div>
+                <div class="col-md-4"><span class="feature-icon blue"><i class="bi bi-shield-check"></i></span><h4 class="service-heading">Admin oversight</h4><p>Verification, moderation, and platform health metrics help keep the mentor network safe and reliable.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section bg-light" id="problem">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-kicker">Why it matters</span>
+                <h2 class="section-heading">Mentorship breaks when it is unstructured</h2>
+                <h3 class="section-subheading">MentorHub is built around the real friction students and mentors face before, during, and after a session.</h3>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3"><div class="problem-card"><div class="role">Students</div><h5 class="mt-2">Hard to find the right guide</h5><p class="mb-0">Students rely on luck, social media, or generic outreach to find someone aligned with their career direction.</p></div></div>
+                <div class="col-md-6 col-lg-3"><div class="problem-card"><div class="role">Students</div><h5 class="mt-2">No visible progress</h5><p class="mb-0">The conversation may be useful, but goals, next steps, and growth signals disappear after the call ends.</p></div></div>
+                <div class="col-md-6 col-lg-3"><div class="problem-card"><div class="role">Mentors</div><h5 class="mt-2">Low-context requests</h5><p class="mb-0">Mentors get vague messages and spend time figuring out whether they can actually help.</p></div></div>
+                <div class="col-md-6 col-lg-3"><div class="problem-card"><div class="role">Admins</div><h5 class="mt-2">Quality needs oversight</h5><p class="mb-0">A growing mentor network needs verification, reports, matching controls, and health metrics.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section bg-light" id="roles">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-kicker">Use cases</span>
+                <h2 class="section-heading">Built for every side of mentorship</h2>
+                <h3 class="section-subheading">Clear paths for students, mentors, and platform operators.</h3>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-sm-6"><div class="module-item"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80" alt="Students planning learning goals together" /><div class="module-caption"><div class="module-caption-heading">For students</div><div class="module-caption-subheading">Clear goals, ranked mentors, booked sessions</div><p class="mt-3 mb-0">Students describe their target role, current gaps, and preferred learning style. MentorHub returns ranked matches with enough context to choose confidently.</p></div></div></div>
+                <div class="col-lg-4 col-sm-6"><div class="module-item"><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=80" alt="Mentor guiding a student during a work session" /><div class="module-caption"><div class="module-caption-heading">For mentors</div><div class="module-caption-subheading">Better requests, controlled availability, tracked impact</div><p class="mt-3 mb-0">Mentors define expertise areas, price, capacity, and schedule. Every request includes student goals so mentors can accept the right sessions.</p></div></div></div>
+                <div class="col-lg-4 col-sm-6 mx-sm-auto"><div class="module-item"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="Dashboard analytics on a computer screen" /><div class="module-caption"><div class="module-caption-heading">For admins</div><div class="module-caption-subheading">Verification, moderation, and platform health</div><p class="mt-3 mb-0">Admins can monitor mentor approvals, match quality, session completion, reports, and user activity from one operational view.</p></div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section" id="how">
+        <div class="container">
+            <div class="text-center"><span class="section-kicker">How it works</span><h2 class="section-heading">From sign-up to growth</h2><h3 class="section-subheading">A simple four-step journey that fits the Agency timeline section.</h3></div>
+            <ul class="timeline">
+                <li><div class="timeline-image"><span>1</span></div><div class="timeline-panel"><div class="timeline-heading"><h4>Build your profile</h4><h4 class="subheading">Goals, skills, style, and availability</h4></div><div class="timeline-body"><p>Students share what they want to achieve. Mentors define where they can help and when they are available.</p></div></div></li>
+                <li class="timeline-inverted"><div class="timeline-image"><span>2</span></div><div class="timeline-panel"><div class="timeline-heading"><h4>Get ranked matches</h4><h4 class="subheading">Compatibility over popularity</h4></div><div class="timeline-body"><p>The matching engine compares profiles and returns mentors ranked by fit, not by who happens to be easiest to find.</p></div></div></li>
+                <li><div class="timeline-image"><span>3</span></div><div class="timeline-panel"><div class="timeline-heading"><h4>Book and prepare</h4><h4 class="subheading">Context before the conversation</h4></div><div class="timeline-body"><p>Students send a clear request, book from live mentor availability, and keep preparation notes inside the platform.</p></div></div></li>
+                <li class="timeline-inverted"><div class="timeline-image"><span>4</span></div><div class="timeline-panel"><div class="timeline-heading"><h4>Track progress</h4><h4 class="subheading">Every session creates the next step</h4></div><div class="timeline-body"><p>After each session, feedback, milestones, and next actions are captured so the mentorship path stays visible.</p></div></div></li>
+                <li class="timeline-inverted"><div class="timeline-image"><span style="font-size:1rem;line-height:1.2">Keep<br />Moving</span></div></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="page-section stack-band" id="platform">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5">
+                    <span class="section-kicker">Platform foundation</span>
+                    <h2 class="section-heading">Designed as more than a directory</h2>
+                    <p>MentorHub works as a guided mentorship system: it captures intent, recommends the right mentor, structures the session flow, and gives admins the controls needed to keep quality high.</p>
+                </div>
+                <div class="col-lg-7">
+                    <div class="stack-list">
+                        <div class="stack-pill"><strong>Matching engine</strong><span>Scores compatibility across goals, skill gaps, learning style, expertise, availability, and cost.</span></div>
+                        <div class="stack-pill"><strong>Session workflow</strong><span>Connection request, booking, reminders, notes, post-session feedback, and next milestones.</span></div>
+                        <div class="stack-pill"><strong>Role-based experience</strong><span>Separate flows for students, mentors, and admins without needing an app-screen showcase section.</span></div>
+                        <div class="stack-pill"><strong>Quality controls</strong><span>Verification, moderation, health metrics, reports, and matching parameter management.</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section cta-band">
+        <div class="container text-center">
+            <span class="section-kicker">Next step</span>
+            <h2 class="section-heading">Bring structure to every mentorship conversation</h2>
+            <p class="mx-auto mb-4" style="max-width:720px;">Build a mentoring journey where every match has context, every session has direction, and every learner knows what to do next.</p>
+            <a class="btn btn-primary btn-xl" href="contact.html">Start the conversation</a>
+        </div>
+    </section>
+
+    <section class="page-section" id="contact">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-kicker">Contact us</span>
+                <h2 class="section-heading">Ready to talk?</h2>
+                <h3 class="section-subheading">Reach out as a student, mentor, partner, or stakeholder.</h3>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <div class="contact-info"><i class="bi bi-envelope"></i><div><strong>Email</strong><span>hello@mentorhub.app</span></div></div>
+                    <div class="contact-info"><i class="bi bi-geo-alt"></i><div><strong>Based in</strong><span>Mansoura, Egypt - FCIS</span></div></div>
+                    <div class="contact-info"><i class="bi bi-people"></i><div><strong>Who we help</strong><span>Students, mentors, universities, and partners</span></div></div>
+                    <p class="mt-4">Tell us what role you are coming from and what kind of mentorship experience you want to build. We will follow up with the right next step.</p>
+                </div>
+                <div class="col-lg-7">
+                    <form id="contactForm">
+                        <div class="row g-3">
+                            <div class="col-md-6"><input class="form-control" id="name" type="text" placeholder="Your name" required /></div>
+                            <div class="col-md-6"><input class="form-control" id="email" type="email" placeholder="Your email" required /></div>
+                            <div class="col-md-6"><input class="form-control" id="phone" type="tel" placeholder="Phone number" /></div>
+                            <div class="col-md-6">
+                                <select class="form-select" id="role" required>
+                                    <option value="" selected disabled>I am a...</option>
+                                    <option>Student looking for a mentor</option>
+                                    <option>Professional ready to mentor</option>
+                                    <option>University or organization</option>
+                                    <option>Partner or stakeholder</option>
+                                </select>
+                            </div>
+                            <div class="col-12"><textarea class="form-control" id="message" placeholder="Tell us how we can help" required></textarea></div>
+                            <div class="col-12 text-center">
+                                <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Send Message</button>
+                                <p class="mt-3 mb-0" id="formStatus" aria-live="polite"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-lg-start">Copyright &copy; MentorHub 2026</div>
+                <div class="col-lg-4 my-3 my-lg-0">
+                    <a class="btn btn-dark mx-1" href="#contact" aria-label="Email"><i class="bi bi-envelope"></i></a>
+                    <a class="btn btn-dark mx-1" href="#page-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></a>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a class="link-dark text-decoration-none me-3" href="#contact">Privacy Policy</a>
+                    <a class="link-dark text-decoration-none" href="#contact">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        window.addEventListener("DOMContentLoaded", function () {
+            let savedUser = null;
+            const params = new URLSearchParams(window.location.search);
+            const redirectedName = params.get("user");
+            const redirectedEmail = params.get("email") || "";
+            if (redirectedName) {
+                savedUser = {
+                    name: redirectedName,
+                    email: redirectedEmail
+                };
+                try {
+                    localStorage.setItem("mentorhubUser", JSON.stringify(savedUser));
+                    window.history.replaceState({}, document.title, "index.html");
+                } catch (error) {
+                }
+            }
+            try {
+                savedUser = savedUser || JSON.parse(localStorage.getItem("mentorhubUser") || "null");
+            } catch (error) {
+            }
+            const authItems = document.querySelectorAll(".auth-item");
+            const userItems = document.querySelectorAll(".user-item");
+            const userLink = document.querySelector(".user-link");
+            const userName = document.getElementById("navUserName");
+            if (savedUser && savedUser.name) {
+                authItems.forEach(function (item) { item.style.display = "none"; });
+                userItems.forEach(function (item) { item.style.display = "list-item"; });
+                if (userLink) userLink.style.display = "flex";
+                if (userName) userName.textContent = savedUser.name;
+            } else {
+                authItems.forEach(function (item) { item.style.display = "list-item"; });
+                userItems.forEach(function (item) { item.style.display = "none"; });
+            }
+            const logoutLink = document.getElementById("logoutLink");
+            if (logoutLink) {
+                logoutLink.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    try {
+                        localStorage.removeItem("mentorhubUser");
+                    } catch (error) {
+                    }
+                    window.location.href = "index.html";
+                });
+            }
+
+            const navbarShrink = function () {
+                const nav = document.body.querySelector("#mainNav");
+                if (nav) nav.classList.toggle("navbar-shrink", window.scrollY !== 0);
+            };
+            navbarShrink();
+            document.addEventListener("scroll", navbarShrink);
+            const nav = document.body.querySelector("#mainNav");
+            if (nav && window.bootstrap) new bootstrap.ScrollSpy(document.body, { target: "#mainNav", rootMargin: "0px 0px -40%" });
+            const toggler = document.body.querySelector(".navbar-toggler");
+            document.querySelectorAll("#navbarResponsive .nav-link").forEach(function (link) {
+                link.addEventListener("click", function () {
+                    if (toggler && window.getComputedStyle(toggler).display !== "none") toggler.click();
+                });
+            });
+            const revealTargets = document.querySelectorAll([
+                ".stat-panel",
+                ".page-section .text-center",
+                "#features .col-md-4",
+                ".problem-card",
+                ".module-item",
+                ".timeline > li",
+                ".stack-band .col-lg-5",
+                ".stack-pill",
+                ".cta-band .container",
+                ".contact-info",
+                "#contact form"
+            ].join(","));
+            revealTargets.forEach(function (el, index) {
+                el.classList.add("reveal");
+                if (el.matches(".module-item,.problem-card,.stack-pill,#features .col-md-4")) el.classList.add("reveal-scale");
+                if (el.matches(".stack-band .col-lg-5,.contact-info")) el.classList.add("reveal-left");
+                if (el.matches("#contact form")) el.classList.add("reveal-right");
+                el.style.setProperty("--reveal-delay", Math.min(index % 6, 5) * 70 + "ms");
+            });
+            const revealObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: .14, rootMargin: "0px 0px -50px 0px" });
+            revealTargets.forEach(function (el) { revealObserver.observe(el); });
+            document.getElementById("contactForm").addEventListener("submit", function (event) {
+                event.preventDefault();
+                document.getElementById("formStatus").textContent = "Thanks. Your message is ready to connect to a backend or SB Forms token.";
+            });
+        });
+    </script>
+</body>
+</html>
