@@ -510,9 +510,4 @@ MentorHub backend is a lightweight ASP.NET API system that:
 * Stores records in JSONL files
 * Returns JSON responses
 
-The architecture is intentionally simple for local demo deployment and educational purposes while remaining scalable for future SQL integration.
-
----
-
-```
-```
+----------------------------------------
